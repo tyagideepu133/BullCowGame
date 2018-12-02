@@ -28,7 +28,6 @@ public:
 
 	void reset(); // TODO make a more rich return value
 	WordStatus checkGuessValidity(FString); // TODO make a more rich return value
-	
 	// for counting bulls & cows, increasing try # assuming valid guess
 	BullCowCount submitGuess(FString);
 
@@ -38,4 +37,7 @@ private:
 	int32 myCurrentTry;
 	FString myHiddenWord;
 	bool gameWon;
+
+	bool isIsogram(FString) const;
+	bool islowerCase(FString) const;
 };

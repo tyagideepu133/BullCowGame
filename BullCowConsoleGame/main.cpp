@@ -39,6 +39,7 @@ void printIntro() {
 	std::cout << "Welcome to Bulding cows Game" << std::endl;
 	std::cout << "Can you guess the " << WORD_LENGTH;
 	std::cout << " letter isogram I'm thinking of? \n";
+	std::cout << "Max Tries for game are:" << fBullCowGame.getMaxTries() << std::endl;
 	std::cout << std::endl;
 	return;
 }
@@ -88,10 +89,11 @@ bool askToPlayAgain() {
 void playGame() {
 	fBullCowGame.reset();
 	int32 maxTries = fBullCowGame.getMaxTries();
-	std::cout << maxTries << std::endl;
+
+
 	// loop for the number of turns asking for guesses
 	// TODO change FOR to WHILE loop once we are validating tries
-	while(! fBullCowGame.isGameWon() &&  fBullCowGame.getCurrentTries <= maxTries)
+	while((!fBullCowGame.isGameWon()) &&  (fBullCowGame.getCurrentTries() <= maxTries))
 	{
 		FText guess = getGuess(); // TODO make loop checking valid guesses
 		// submit valid guess to the game
@@ -108,7 +110,7 @@ void playGame() {
 
 void printGameSummary()
 {
-	if (fBullCowGame.isGameWon)
+	if (fBullCowGame.isGameWon())
 	{
 		std::cout << "Well Done - You Won" << std::endl;
 	}
